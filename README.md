@@ -12,4 +12,9 @@ Nous avons construit une série d'expressions régulières pouvant être appliqu
 
 A partir de ces données, nous avons construit une liste des ZONEX et les coordonnées géographiques, interprétable par une machine.
 
+## Ressources
 
+Les préfectures maritimes proposent un flux RSS des AVURNAVs:
+- [Manche](https://www.premar-manche.gouv.fr/avis/rss/AVURNAV?format=rss)
+- [Atlantique](https://www.premar-atlantique.gouv.fr/avis/rss/AVURNAV?format=rss)
+- [Méditerranée](https://www.premar-mediterranee.gouv.fr/avis/rss/AVURNAV?format=rss)
