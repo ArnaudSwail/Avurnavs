@@ -1,104 +1,15 @@
 # Avurnavs
 
-## Regular expressions
+Swail a à coeur la sécurité en mer. Nous nous sommes donnés pour mission d'apporter des solutions numériques permettant d'augmenter la sécurité en mer.
 
-### Position
+Les AVURNAVs, Avis Urgents Aux Navigateurs, modifient quotidiennement les règles de navigation en mer dans les eaux territoriales françaises.
 
-#### 48-29.549N, 002-00.086W
-```
-(?<latDeg>\d\d)[-\s](?<latMin>\d\d)[,.](?<latSec>\d\d?\d?)(?<latHem>[NS]),? (?<lonDeg>\d?\d\d)[-\s](?<lonMin>\d\d)[,.](?<lonSec>\d\d?\d?)(?<lonHem>[WE])
-```
+Données textuelles, peu ou pas formatées, notamment en ce qui concerne les coordonnées géographiques reportées, ainsi que les dates d'application des avis, les AVURNAVs demandent un traitement humain peu compatible avec les méthodes électroniques de navigation utilisées aujourd'hui.
 
-Exemple: 
-```
-PSN: 48-29.549N, 002-00.086W
-```
+Le temps nécessaire à leur report dans les dispositifs électroniques et le traitement humain propice à des erreurs de lecture induisent que peu de marins, notamment amateurs, ne les consultent et ne les reportent sur des cartes.
 
-#### DU 4420N AU 4428N DE LA COTE AU 00122W
+Nous avons construit une série d'expressions régulières pouvant être appliquées au texte des AVURNAVs pour une interprétation des données contenues, notamment les coordonnées géographiques et les dates.
 
-```
-(?<lat>\d\d\d\d[NS])|(?<lon>\d\d\d\d\d?[EW])
-```
-
-Exemple:
-```
-DU 4420N AU 4428N DE LA COTE AU 00122W
-```
-#### ZONEX
-
-```
-(ZONEX (?<zone>\d\d\c?)[-\d\d\c*]+) 
-```
-
-```
-(ZONEX 10-11) 
-```
-
-### Dates
-
-#### 08 AVRIL 2021
-
-```
-(?<day>\d\d?)\s+(?<month>(JANVIER|FEVRIER|MARS|AVRIL|MAI|JUIN|JUILLET|AOUT|SEPTEMBRE|OCTOBRE|NOVEMBRE|DECEMBRE))\s+(?<year>\d\d\d\d)
-```
-
-Exemple:
-```
-08 AVRIL 2021
-```
-
-#### LE 120000 UTC AVR 21
-
-```
-(?<day>\d\d)(?<hour>\d\d)(?<min>\d\d)\sUTC\s(?<month>(JAN|FEV|MAR|AVR|MAI|JUI|JUI|AOU|SEP|OCT|NOV|DEV))\s(?<year>\d\d)
-```
-
-Exemple:
-```
-LE 120000 UTC AVR 21
-```
-
-#### DU 03 AU 08 AVRIL 2021.
-
-```
-DU\s+\d\d\s+AU\s+\d\d\s+(?<month>(JANVIER|FEVRIER|MARS|AVRIL|MAI|JUIN|JUILLET|AOUT|SEPTEMBRE|OCTOBRE|NOVEMBRE|DECEMBRE))\s+\d\d\d\d
-```
-
-Exemple:
-```
-DU 03 AU 08 AVRIL 2021.
-```
-
-#### DE 060915 UTC A 061015 UTC AVRIL 2021
-
-```
-DE\s+\d\d\d\d\d\d\s+UTC\s+A\s+\d\d\d\d\d\d\s+UTC\s+(?<month>(JANVIER|FEVRIER|MARS|AVRIL|MAI|JUIN|JUILLET|AOUT|SEPTEMBRE|OCTOBRE|NOVEMBRE|DECEMBRE))\s+(?<year>\d\d\d\d)
-```
-
-Exemple:
-```
-DE 060915 UTC A 061015 UTC AVRIL 2021
-```
-
-#### DU 08/04/2021 A 20H00 AU 09/04/21 A 03H00 UTC
-
-```
-DU\s+(?<day>\d\d)/(?<month>\d\d)/(?<year>\d\d\d\d)\s+A\s+(?<hour>\d\d)H(?<min>\d\d)\s+AU\s+(?<month>\d\d)/(?<year>\d\d\d\d)\s+A\s+(?<hour>\d\d)H(?<min>\d\d)
-```
-
-```
-DU 08/04/2021 A 20H00 AU 09/04/21 A 03H00 UTC
-```
-
-## Fin de validité du message
-```
-ANNULER CE MSG LE (?<day>\d\d)(?<hour>\d\d)(?<min>\d\d) UTC (?<month3>(JAN|FEV|MAR|AVR|MAI|JUI|JUI|AOU|SEP|OCT|NOV|DEV)) (?<year2>\d\d)
-```
-
-```
-ANNULER CE MSG LE 110059 UTC AVR 21
-```
-
-
+A partir de ces données, nous avons construit une liste des ZONEX et les coordonnées géographiques, interprétable par une machine.
 
 
