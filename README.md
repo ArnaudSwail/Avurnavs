@@ -24,6 +24,15 @@ Exemple:
 ```
 DU 4420N AU 4428N DE LA COTE AU 00122W
 ```
+#### ZONEX
+
+```
+(ZONEX \d\d[-\d\d]+) 
+```
+
+```
+(ZONEX 10-11) 
+```
 
 ### Dates
 
@@ -71,9 +80,15 @@ Exemple:
 DE 060915 UTC A 061015 UTC AVRIL 2021
 ```
 
+#### DU 08/04/2021 A 20H00 AU 09/04/21 A 03H00 UTC
 
+```
+DU\s+(?<day>\d\d)/(?<month>\d\d)/(?<year>\d\d\d\d)\s+A\s+(?<hour>\d\d)H(?<min>\d\d)\s+AU\s+(?<month>\d\d)/(?<year>\d\d\d\d)\s+A\s+(?<hour>\d\d)H(?<min>\d\d)
+```
 
-
+```
+DU 08/04/2021 A 20H00 AU 09/04/21 A 03H00 UTC
+```
 
 
 
