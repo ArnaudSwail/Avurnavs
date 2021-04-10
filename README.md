@@ -27,7 +27,7 @@ DU 4420N AU 4428N DE LA COTE AU 00122W
 #### ZONEX
 
 ```
-(ZONEX \d\d[-\d\d]+) 
+(ZONEX (?<zone>\d\d\c?)[-\d\d\c*]+) 
 ```
 
 ```
