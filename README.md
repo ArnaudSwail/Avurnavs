@@ -90,7 +90,14 @@ DU\s+(?<day>\d\d)/(?<month>\d\d)/(?<year>\d\d\d\d)\s+A\s+(?<hour>\d\d)H(?<min>\d
 DU 08/04/2021 A 20H00 AU 09/04/21 A 03H00 UTC
 ```
 
+## Fin de validité du message
+```
+ANNULER CE MSG LE (?<day>\d\d)(?<hour>\d\d)(?<min>\d\d) UTC (?<month3>(JAN|FEV|MAR|AVR|MAI|JUI|JUI|AOU|SEP|OCT|NOV|DEV)) (?<year2>\d\d)
+```
 
+```
+ANNULER CE MSG LE 110059 UTC AVR 21
+```
 
 
 
