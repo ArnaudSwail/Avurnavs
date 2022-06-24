@@ -446,5 +446,3 @@ UTC
 (ZONEX 11)    
 2. ANNULER CE MSG LE 110059 UTC AVR 21.
 
-## Avurnav
-
